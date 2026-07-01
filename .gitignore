@@ -1,0 +1,6 @@
+# Facturas y documentos con datos personales (CPF, direcciones) - no publicar
+faturas/
+
+# Archivos temporales del sistema
+Thumbs.db
+.DS_Store
