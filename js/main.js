@@ -50,12 +50,22 @@ function salePriceBRL(costBRL) {
   return costBRL / CONFIG.marginDivisor;
 }
 
-function formatPrice(valueBRL) {
-  if (currentLang === "pt") {
-    return `R$ ${valueBRL.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  }
+function formatBRL(valueBRL) {
+  return `R$ ${valueBRL.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+function formatUSD(valueBRL) {
   const usd = valueBRL / CONFIG.usdBrlRate;
   return `US$ ${usd.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+/* En español se muestran ambas monedas (USD y BRL), ya que la tasa de cambio
+   no siempre es clara para quien compra. En portugués solo se muestra BRL. */
+function formatPrice(valueBRL) {
+  if (currentLang === "pt") {
+    return formatBRL(valueBRL);
+  }
+  return `${formatUSD(valueBRL)} (${formatBRL(valueBRL)})`;
 }
 
 function findProduct(id) {

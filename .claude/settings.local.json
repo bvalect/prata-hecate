@@ -17,7 +17,9 @@
       "Bash(python3 build_excel_ordem01512.py)",
       "Bash(sort -k9)",
       "Bash(python3 add_hoja_tartaruga.py)",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(rm -f Lineas_PRINCESS_LUA.xlsx)",
+      "Bash(python3 rebuild_excel_lineas.py)"
     ]
   }
 }
